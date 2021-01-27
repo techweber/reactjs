@@ -103,52 +103,59 @@ import reportWebVitals from './reportWebVitals';
 // 	}
 // }
 
-class Container extends React.Component {
-	constructor(props){
-		super(props);
-		this.state = {show: true};
-	}
+// class Container extends React.Component {
+// 	constructor(props){
+// 		super(props);
+// 		this.state = {show: true};
+// 	}
 
-	delHeader = () => {
-		this.setState({show: false});
-	}
+// 	delHeader = () => {
+// 		this.setState({show: false});
+// 	}
 
-	render() {
-		let myheader;
-		if(this.state.show){
-			myheader = <Child />;
-		};
-		return (
-			<div>
-			{myheader}
-			<button type="button" onClick={this.delHeader}>Delete Header</button>
-			</div>
-		);
-	}
+// 	render() {
+// 		let myheader;
+// 		if(this.state.show){
+// 			myheader = <Child />;
+// 		};
+// 		return (
+// 			<div>
+// 			{myheader}
+// 			<button type="button" onClick={this.delHeader}>Delete Header</button>
+// 			</div>
+// 		);
+// 	}
 
+// }
+
+
+// class Child extends React.Component{
+// 	componentWillUnmount(){
+// 		alert('The component named Header is about to be unmounted');
+// 	}
+// 	render(){
+// 		return (
+// 		<h1>Hello World</h1>
+// 		);
+// 	}
+// }
+
+class Football extends React.Component {
+  shoot = (a, b) => {
+    alert(b.type);
+    /*
+    'b' represents the React event that triggered the function,
+    in this case the 'click' event
+    */
+  }
+  render() {
+    return (
+      <button onClick={this.shoot.bind(this, "Goal")}>Take the shot!</button>
+    );
+  }
 }
 
-
-class Child extends React.Component{
-	componentWillUnmount(){
-		alert('The component named Header is about to be unmounted');
-	}
-	render(){
-		return (
-		<h1>Hello World</h1>
-		);
-	}
-}
-
-
-
-
-ReactDOM.render(<Container />,document.getElementById('root'));
-
-
-
-
-
+ReactDOM.render(<Football />, document.getElementById('root'));
 
 
 // ReactDOM.render(
